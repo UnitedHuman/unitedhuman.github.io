@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="UnitedHuman: Harnessing Multi-Source Data for High-Resolution Human Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UnitedHuman: Harnessing Multi-Source Data for High-Resolution Human Generation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <script src="https://kit.fontawesome.com/ec39017701.js" crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <div id="loading">
+    <div class="loader"></div>
+    <!-- <img id="loading-image" src="path/to/ajax-loader.gif" alt="Loading..." /> -->
+  </div>
+
+
+
+  <!-- <script> magnify("myimage", 3); </script> -->
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <br><br><br>
+            <h1 class="title is-1 publication-title">UnitedHuman: Harnessing Multi-Source Data for High-Resolution Human Generation</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <h3 style="color:#5a6268;">Technical Report</h3>
+            </div>            
+            <div class="column has-text-centered">
+              <div class="publication-links">
+               
+                <span class="link-block">
+                  <a href="" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>Arxiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>GitHub</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br><br>
+  <!-- Teaser Picture -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+          <img class="cover" src="./static/imgs/teaser.png" style="width:1000px; margin-bottom:20px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Human generation has achieved significant progress.
+              Nonetheless, existing methods still struggle to synthesize specific regions such as faces and hands. We argue that the main reason is rooted in the training data. 
+              A holistic human dataset inevitably has insufficient and low-resolution information on local parts.
+              Therefore, we propose to use multi-source datasets with various resolution images to jointly learn a high-resolution human generative model. 
+              However, 
+              multi-source data inherently <strong>a)</strong> contains different parts that do not spatially align into a coherent human, and <strong>b)</strong> comes with different scales. 
+              To tackle these challenges, we propose an end-to-end framework, <strong>UnitedHuman</strong>, that empowers continuous GAN with the ability to effectively utilize multi-source data for high-resolution human generation. 
+              Specifically, <strong>1)</strong> we design a Multi-Source Spatial Transformer that spatially aligns multi-source images to full-body space with a human parametric model.
+              <strong>2)</strong> Next, a continuous GAN is proposed with global-structural guidance and CutMix consistency. 
+              Patches from different datasets are then sampled and transformed to supervise the training of this scale-invariant generative model. 
+              Extensive experiments demonstrate that our model jointly learned from multi-source data achieves superior quality than those learned from a holistic dataset. 
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!--/ Abstract. -->
+
+  <!-- Paper video. -->
+  <section>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-three-fifths">
+        <h2 class="title is-3">Overview Video</h2>
+        <div class="publication-video">
+          <iframe src="" frameborder="10"
+            allow="autoplay; encrypted-media" width="50%" allowfullscreen></iframe>
+        </div> 
+        <!-- https://www.youtube.com/embed/nIrb9hwsdcI?autoplay=0 -->
+      </div>
+    </div>
+  </section>
+  <!-- / Paper video.   -->
+
+  <!-- Methodologies. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Methodology</h2>
+          <div class="content has-text-justified">
+            <img class="cover" src="./static/imgs/methodology.png" style="width:1000px; margin-bottom:20px;">
+            <p>
+              Given the images <i>I<sub>p</sub></i> from the multi-source datasets <i>D<sub>ms</sub></i>, the Multi-Source Spatial Transformer puts the partial-body image into the 
+              full-body image space as <i>I<sub>p&rarr;f</sub></i> for a unified spatial distribution. With sampling parameters <i><b>v</b></i>, <i>s</i>, <i>r</i> and latent code <i>z</i> from prior distribution, 
+              our Continuous GAN generates the patches <i>P<sub>n</sub></i> at center <i><b>v</b></i> with scale <i>s</i>. 
+              The patches over the full-body space are stitched to form the high-resolution full-body images <i>I<sub>f</sub></i> .  
+            </p>
+          </div>
+          
+
+        
+        <div class="method-image-container">
+            <div>
+                <img src="./static/imgs/mst.png" alt="Image 1">
+                <div class="method-caption">
+                  <strong>(a) Multi-source Spatial Transformer.</strong> Given a image <i>I<sub>p</sub></i> , we first predict the camera 
+                  <i>K<sub>est</sub></i> and pose <i>&theta;<sub>est</sub></i> of SMPL. Optimized by SMPLify-P on both visible and invisible parts, 
+                  the camera <i>K<sub>opt</sub></i> is used to calculate the matrix <i>H</i> that transforms the patch into the full-body image space. 
+                </div>
+            </div>
+            <div>
+                <img src="./static/imgs/continuousgan.png" alt="Image 2">
+                <div class="method-caption">
+                  <strong>(b) Continous GAN.</strong> Given a sampling parameters (<i>v</i>, <i>s</i>), the transformed Fourier feature <i>T<sub>v, s</sub>(F)</i> is used to generate 
+                  patches with latent code <i>z</i>. We use U-Net discriminator for global and pixel-wise adversarial training. 
+                  The proposed CutMix consistency makes the partial-body images <i>I<sub>real</sub><sup>p</sup></i> trained at all scales.<br><br>
+                </div>
+            </div>
+        </div>
+         
+        </div>
+      </div>
+  </section>
+  <!-- Methodologies. -->
+
+<!-- Results. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Compare with SOTAs</h2>
+        <div class="content has-text-justified">
+            <img src="./static/imgs/compare.png" alt="Image 1">
+            <img src="./static/imgs/compare2.png" alt="Image 1">
+          <p>
+            Here are the comparison results of StyleGAN-Human, InsetGAN, AnyRes, and UnitedHuman. 
+            We exhibit the full-body human images generated from each experiment at a resolution of 1024 (<span class="green-dashed-line"></span>), 
+            as well as the face and hand patches cut from the 2048px images (<span class="blue-dashed-line"></span>).
+          </p>
+        </div>
+        
+      </div>
+    </div>
+</section>
+<!-- Results. -->
+
+
+  <!-- <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Downstream Applications</h2> -->
+
+      <!-- Interpolating. -->
+      <!-- <h3 class="title is-4 has-text-centered">Interpolating</h3>
+      <div class="columns-mid is-vcentered interpolation-panel">
+        <div class="column is-3 has-text-centered">
+          <img src='./static/images/seed0000.png' class="interpolation-image"
+            alt="Interpolate start reference image." />
+          <p>Start Frame</p>
+        </div>
+        <div class="column-mid interpolation-video-column center ">
+          <div id="interpolation-image-wrapper">
+            Loading...
+          </div>
+          <input class="slider-custom is-fullwidth-custom is-large is-info" id="interpolation-slider" step="1" min="1"
+            max="98" value="50" type="range">
+        </div>
+        <div class="column is-3 has-text-centered">
+          <img src='./static/images/seed0099.png' class="interpolation-image"
+            alt="Interpolation end reference image." />
+          <p class="is-bold">End Frame</p>
+        </div>
+      </div> -->
+
+      <!-- <br>
+      <br> -->
+      <!-- Style-Mixing  -->
+      <!-- <h3 class="title is-4 has-text-centered">Style-Mixing</h3>
+      <div class="content has-text-justified">
+        <div class="slideshow-container">
+
+          <div class="mySlides fade">
+            <div class="publication-video">
+              <iframe src="https://www.youtube.com/embed/86b49sCz0Gg?autoplay=1" frameborder="0"
+                allow="autoplay; encrypted-media" width="100%" height="80%"></iframe>
+            </div>
+            <br>
+            <div class="text">Use low-level styles from reference to control coarse features (e.g. poses) in source
+              images. </div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="publication-video">
+              <iframe src="https://www.youtube.com/embed/g3nmM6MdxwY?autoplay=1" frameborder="0"
+                allow="autoplay; encrypted-media" width="100%" height="80%"></iframe>
+            </div>
+            <br>
+            <div class="text">Use mid-level styles from reference to control middle features (e.g. clothing types / ID
+              appearances) in source images. </div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="publication-video">
+              <iframe src="https://www.youtube.com/embed/p2uwqh_SFL8?autoplay=1" frameborder="0"
+                allow="autoplay; encrypted-media" width="100%" height="80%"></iframe>
+            </div>
+            <br>
+            <div class="text">Use high-level styles from reference to control fine features (e.g. clothing colors) in
+              source images. </div>
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+          <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+      <script>
+        // https://stackoverflow.com/questions/47368940/css-slideshow-not-showing-image-until-clicked
+        let slideIndex = 1;
+        showSlides(slideIndex);
+      </script> -->
+
+      <!-- <br>
+      <br>
+      <h3 class="title is-4 has-text-centered">Attributes Editing with generated images</h3>
+      <div class="content has-text-centered">
+        <div class="hero-body " padding=-10rem>
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item">
+                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                  <source src="./static/videos/ss_upper_length_60948.mp4" type="video/mp4">
+                </video>
+                <br>
+                <div class="text-small">Change Upper length <br> (StyleSpace)</div>
+              </div>
+              <div class="item  ">
+                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                  <source src="./static/videos/ifg_upper_length_61531.mp4" type="video/mp4">
+                </video>
+                <br>
+                <div class="text-small">Change Upper length <br> (InterFaceGAN)</div>
+              </div>
+              <div class="item  ">
+                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                  <source src="./static/videos/ifg_bottom_length_61570.mp4" type="video/mp4">
+                </video>
+                <br>
+                <div class="text-small">Change Bottom length <br> (InterFaceGAN)</div>
+              </div>
+              <div class="item">
+                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                  <source src="./static/videos/ss_upper_length_60965.mp4" type="video/mp4">
+                </video>
+                <br>
+                <div class="text-small">Change Upper length <br> (StyleSpace)</div>
+              </div>
+              <div class="item ">
+                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                  <source src="./static/videos/ss_upper_length_61064.mp4" type="video/mp4">
+                </video>
+                <br>
+                <div class="text-small">Change Upper length <br> (StyleSpace)</div>
+              </div>
+              <div class="item ">
+                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                  <source src="./static/videos/ss_upper_length_61571.mp4" type="video/mp4">
+                </video>
+                <br>
+                <div class="text-small">Change Upper length <br> (StyleSpace)</div>
+              </div>
+              <div class="item ">
+                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                  <source src="./static/videos/ss_upper_length_61610.mp4" type="video/mp4">
+                </video>
+                <br>
+                <div class="text-small">Change Upper length <br> (StyleSpace)</div>
+              </div>
+              <div class="item">
+                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                  <source src="./static/videos/ss_bottom_length_61313.mp4" type="video/mp4">
+                </video>
+                <br>
+                <div class="text-small">Change Bottom length <br> (StyleSpace)</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <br>
+      <br> -->
+      <!--Attributes Editing -->
+      <!-- <h3 class="title is-4 has-text-centered">Attributes Editing with an inverted real image</h3>
+      <div class="content has-text-centered">
+        <div class="hero-body " padding=-10rem>
+          <div class="container">
+            <video id="replay-video" controls muted preload autoplay loop width="100%">
+              <source src="./static/videos/real_image_editing.mp4" type="video/mp4">
+            </video>
+            <br>
+            <div class="text">from left to right: Real image | Inverted image | InterFaceGAN | StyleSpace | SeFa</div>
+          </div>
+        </div>
+      </div> -->
+    <!-- </div>
+  </section> -->
+<!-- 
+  <section class="section" id="Citaton">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Related Works</h2>
+      <p><a href="https://yumingj.github.io/projects/Text2Human.html">Text2Human</a> proposes a text-driven controllable
+        human image synthesis framework.</p>
+      <p><a href="https://www.mmlab-ntu.com/project/talkedit/">Talk-to-Edit</a> proposes a StyleGAN-based method
+        and a multi-modal dataset for dialog-based facial editing.</p>
+      <p><a href="https://github.com/yumingj/DeepFashion-MultiModal">DeepFashion-MultiModal</a> is a large-scale
+        and high-quality human dataset with rich multi-modal annotations.</p>
+      <p><a href="https://hongfz16.github.io/projects/AvatarCLIP.html"> AvatarCLIP</a> proposes a zero-shot
+        text-driven framework for 3D avatar generation and animation</p>
+      <p><a href="https://hongfz16.github.io/projects/EVA3D.html" target="_blank">EVA3D</a> proposes a
+        compositional framework to generate 3D human from 2D image collections.</p>
+    </div> -->
+  <!-- </section> -->
+<!-- 
+  <section class="section" id="Citaton">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{unitedhuman,
+      title={UnitedHuman: Harnessing Multi-Source Data for High-Resolution Human Generation},
+      author={},
+      journal   = {arXiv preprint},
+      volume    = {arXiv:0000.00000},
+      year    = {2022}
+    }</code></pre>
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="logos">
+      <img class="thumbnail" src="" style="height:50px;">
+    </div>
+    <br>
+    <div class="columns is-centered">
+      <div class="content">
+        <p> The website template is borrowed from <a
+            href="https://stylegan-human.github.io/" target="_blank"> StyleGAN-Human's webpage</a>. </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    $(window).on('load', function () {
+      $('#loading').hide();
+    })
+  </script>
+</body>
+
+</html>

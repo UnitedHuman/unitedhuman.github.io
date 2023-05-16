@@ -113,7 +113,7 @@
               multi-source data inherently <strong>a)</strong> contains different parts that do not spatially align into a coherent human, and <strong>b)</strong> comes with different scales. 
               To tackle these challenges, we propose an end-to-end framework, <strong>UnitedHuman</strong>, that empowers continuous GAN with the ability to effectively utilize multi-source data for high-resolution human generation. 
               Specifically, <strong>1)</strong> we design a Multi-Source Spatial Transformer that spatially aligns multi-source images to full-body space with a human parametric model.
-              <strong>2)</strong> Next, a continuous GAN is proposed with global-structural guidance and CutMix consistency. 
+              <strong>2)</strong> Next, a continuous GAN is proposed with global-structural guidance. 
               Patches from different datasets are then sampled and transformed to supervise the training of this scale-invariant generative model. 
               Extensive experiments demonstrate that our model jointly learned from multi-source data achieves superior quality than those learned from a holistic dataset. 
             </p>
@@ -122,6 +122,18 @@
       </div>
   </section>
   <!--/ Abstract. -->
+  <section>
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-three-fifths"> -->
+        <img id="loading-image" src="./static/gif/seed836_kpt0.gif" alt="Loading..." />
+        <img id="loading-image" src="./static/gif/seed836_kpt4.gif" alt="Loading..." />
+        <img id="loading-image" src="./static/gif/seed977_kpt0.gif" alt="Loading..." />
+        <img id="loading-image" src="./static/gif/seed856_kpt3.gif" alt="Loading..." />
+      <!-- </div> -->
+    </div>
+    <br><br>
+  </section>
+  
 
   <!-- Paper video. -->
   <section>
@@ -129,7 +141,7 @@
       <div class="column is-three-fifths">
         <h2 class="title is-3">Overview Video</h2>
         <div class="publication-video">
-          <iframe src="" frameborder="10"
+          <iframe src="https://www.youtube.com/embed/pdsfUYFDLSw?autoplay=0" frameborder="10"
             allow="autoplay; encrypted-media" width="50%" allowfullscreen></iframe>
         </div> 
         <!-- https://www.youtube.com/embed/nIrb9hwsdcI?autoplay=0 -->
@@ -138,32 +150,27 @@
   </section>
   <!-- / Paper video.   -->
 
-  <!-- Methodologies. -->
-  <section class="section">
+  <!-- Methodologies. OLD -->
+  <!-- <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Methodology</h2>
           <div class="content has-text-justified">
             <img class="cover" src="./static/imgs/methodology.png" style="width:1000px; margin-bottom:20px;">
-            <p>
-              Given the images <i>I<sub>p</sub></i> from the multi-source datasets <i>D<sub>ms</sub></i>, the Multi-Source Spatial Transformer puts the partial-body image into the 
+              <strong>Overview.</strong> Given the images <i>I<sub>p</sub></i> from the multi-source datasets <i>D<sub>ms</sub></i>, the Multi-Source Spatial Transformer puts the partial-body image into the 
               full-body image space as <i>I<sub>p&rarr;f</sub></i> for a unified spatial distribution. With sampling parameters <i><b>v</b></i>, <i>s</i>, <i>r</i> and latent code <i>z</i> from prior distribution, 
               our Continuous GAN generates the patches <i>P<sub>n</sub></i> at center <i><b>v</b></i> with scale <i>s</i>. 
               The patches over the full-body space are stitched to form the high-resolution full-body images <i>I<sub>f</sub></i> .  
-            </p>
           </div>
-          
-
-        
-        <div class="method-image-container">
+          <div class="method-image-container">
             <div>
-                <img src="./static/imgs/mst.png" alt="Image 1">
-                <div class="method-caption">
-                  <strong>(a) Multi-source Spatial Transformer.</strong> Given a image <i>I<sub>p</sub></i> , we first predict the camera 
-                  <i>K<sub>est</sub></i> and pose <i>&theta;<sub>est</sub></i> of SMPL. Optimized by SMPLify-P on both visible and invisible parts, 
-                  the camera <i>K<sub>opt</sub></i> is used to calculate the matrix <i>H</i> that transforms the patch into the full-body image space. 
-                </div>
+              <img src="./static/imgs/mst.png" alt="Image 1">
+              <div class="method-caption">
+                <strong>Multi-source Spatial Transformer.</strong> Given a image <i>I<sub>p</sub></i> , we first predict the camera 
+                <i>K<sub>est</sub></i> and pose <i>&theta;<sub>est</sub></i> of SMPL. Optimized by SMPLify-P on both visible and invisible parts, 
+                the camera <i>K<sub>opt</sub></i> is used to calculate the matrix <i>H</i> that transforms the patch into the full-body image space. 
+              </div>
             </div>
             <div>
                 <img src="./static/imgs/continuousgan.png" alt="Image 2">
@@ -173,12 +180,40 @@
                   The proposed CutMix consistency makes the partial-body images <i>I<sub>real</sub><sup>p</sup></i> trained at all scales.<br><br>
                 </div>
             </div>
-        </div>
-         
+          </div>
         </div>
       </div>
-  </section>
-  <!-- Methodologies. -->
+    </div>
+  </section> -->
+  <!-- Methodologies.  OLD -->
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align: center; ">Methodology</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="method-image-container">
+          <div>
+            <img src="./static/imgs/methodology.png" alt="Image 1">
+            <div class="method-caption">
+              <strong>Overview.</strong> Given the images <i>I<sub>p</sub></i> from the multi-source datasets <i>D<sub>ms</sub></i>, the Multi-Source Spatial Transformer puts the partial-body image into the 
+              full-body image space as <i>I<sub>p&rarr;f</sub></i> for a unified spatial distribution. With sampling parameters <i><b>v</b></i>, <i>s</i>, <i>r</i> and latent code <i>z</i> from prior distribution, 
+              our Continuous GAN generates the patches <i>P<sub>n</sub></i> at center <i><b>v</b></i> with scale <i>s</i>. 
+              The patches over the full-body space are stitched to form the high-resolution full-body images <i>I<sub>f</sub></i> .  
+            </div>
+          </div>
+          <div>
+            <img src="./static/imgs/mst.png" alt="Image 1" style="width:75%;">
+            <div class="method-caption">
+              <strong>Multi-source Spatial Transformer.</strong> Given a image <i>I<sub>p</sub></i> , we first predict the camera 
+              <i>K<sub>est</sub></i> and pose <i>&theta;<sub>est</sub></i> of SMPL. Optimized by SMPLify-P on both visible and invisible parts, 
+              the camera <i>K<sub>opt</sub></i> is used to calculate the matrix <i>H</i> that transforms the patch into the full-body image space. 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Results. -->
 <section class="section">
